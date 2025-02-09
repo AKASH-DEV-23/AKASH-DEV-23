@@ -19,12 +19,12 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: dist/github-snake-dark.svg
-          # Modified colors to match the image pattern
-          color_snake: "#1EB980"  # Bright green for the snake
-          # Multiple shades of green from brightest to darkest
+          # Bright green snake to match the image
+          color_snake: "#00FF00"  # Pure bright green
+          # Dark gray base with bright green and purple highlights
           color_dots: |
-            #1EB980,#149261,#0B6B47,#06442C,#1A1B1E
-          background: "#1A1B1E"  # Dark background matching image
+            #161B22,#00FF00,#00FF00,#00FF00,#FF00FF
+          background: "#0D1117"  # GitHub dark theme background
 
       - name: Push Snake Animation to Repository
         uses: peaceiris/actions-gh-pages@v3
