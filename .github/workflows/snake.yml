@@ -18,14 +18,16 @@ jobs:
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: dist/github-snake-dark.svg
-          # Bright green snake to match the image
-          color_snake: "#00FF00"  # Pure bright green
-          # Dark gray base with bright green and purple highlights
+          outputs: |
+            dist/github-contribution-snake-dark.svg?palette=github-dark
+          # Bright green snake
+          color_snake: "#00FF00"
+          # Dark theme colors for dots
           color_dots: |
             #161B22,#00FF00,#00FF00,#00FF00,#FF00FF
-          background: "#0D1117"  # GitHub dark theme background
-
+          # Using transparent background
+          background: "transparent"
+          
       - name: Push Snake Animation to Repository
         uses: peaceiris/actions-gh-pages@v3
         with:
