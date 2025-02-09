@@ -15,11 +15,14 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Generate GitHub Contribution Snake (Dark Theme)
+      - name: Generate GitHub Contribution Snake (Dark Mode)
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: dist/github-snake-dark.svg?palette=github-dark  # Generates dark mode snake
+          outputs: dist/github-snake-dark.svg
+          color_snake: "#A020F0"  # Purple snake
+          color_dots: "#39FF14,#003300,#001100,#0D1117,#161B22"  # Dark green grid
+          background: "#0D1117"   # Dark background
 
       - name: Push Snake Animation to Repository
         uses: peaceiris/actions-gh-pages@v3
