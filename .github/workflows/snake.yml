@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Required to push files to the repo
+  contents: write  # Required to push files
 
 jobs:
   generate:
@@ -20,8 +20,9 @@ jobs:
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: dist/github-contribution-grid-snake.svg
-          color_snake: "#8A2BE2"      # Snake color (purple)
-          color_dots: "#39FF14,#0D1117,#161B22,#30363D,#6E7681"  # Dark mode colors
+          color_snake: "#A020F0"      # Snake color (Purple)
+          color_dots: "#00FF00,#003300,#001100,#0D1117,#161B22"  # Dark green theme
+          background: "#0D1117"       # Dark GitHub theme
 
       - name: Push Snake Animation to Repository
         uses: peaceiris/actions-gh-pages@v3
