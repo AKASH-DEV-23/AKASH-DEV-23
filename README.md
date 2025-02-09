@@ -1,1 +1,1 @@
-![GitHub Snake Animation](https://raw.githubusercontent.com/AKASH-DEV-23/AKASH-DEV-23/output/github-snake-dark.svg)
+![GitHub Snake Animation](https://raw.githubusercontent.com/AKASH-DEV-23/AKASH-DEV-23/output/github-contribution-snake-dark.svg)
