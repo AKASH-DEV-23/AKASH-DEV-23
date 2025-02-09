@@ -19,15 +19,12 @@ jobs:
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
-          outputs: dist/github-contribution-grid-snake.svg
-          color_snake: "#A020F0"      # Purple snake
-          color_dots: "#39FF14,#003300,#001100,#0D1117,#161B22"  # Dark green tones
-          background: "#0D1117"       # GitHub dark theme
+          outputs: dist/github-snake-dark.svg?palette=github-dark  # Generates dark mode snake
 
       - name: Push Snake Animation to Repository
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: output
-          publish_dir: ./dist
+          publish_dir: dist
           force_orphan: true
