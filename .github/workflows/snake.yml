@@ -1,5 +1,4 @@
 name: Generate Snake
-
 on:
   schedule:
     - cron: "0 0 * * *" # Runs daily at midnight
@@ -15,14 +14,17 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v3
 
-      - name: Generate GitHub Contribution Snake (Custom Dark Mode)
+      - name: Generate GitHub Contribution Snake
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: dist/github-snake-dark.svg
-          color_snake: "#00FF00"  # Bright green snake
-          color_dots: "#39FF14,#00CC00,#006600,#004400,#002200"  # Different shades of green
-          background: "#0D1117"  # GitHub dark theme background
+          # Modified colors to match the image pattern
+          color_snake: "#1EB980"  # Bright green for the snake
+          # Multiple shades of green from brightest to darkest
+          color_dots: |
+            #1EB980,#149261,#0B6B47,#06442C,#1A1B1E
+          background: "#1A1B1E"  # Dark background matching image
 
       - name: Push Snake Animation to Repository
         uses: peaceiris/actions-gh-pages@v3
