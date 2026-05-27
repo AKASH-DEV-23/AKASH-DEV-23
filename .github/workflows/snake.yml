@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Required to push files
+  contents: write  # Crucial for allowing the bot to create the output branch
 
 jobs:
   generate:
@@ -14,11 +14,10 @@ jobs:
     timeout-minutes: 5
     
     steps:
-      # Check out the repository so it can commit assets if needed
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Generates a snake game from a github user contributions graph, output a svg animation
+      # Generates the snake files
       - name: Generate GitHub Contribution Snake
         uses: Platane/snk@v3
         with:
@@ -28,7 +27,7 @@ jobs:
             dist/github-snake-dark.svg?palette=github-dark
             dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#4a90e2,#165fbe,#0b3774
           
-      # Push the total of 3 files to the 'output' branch
+      # Pushes the generated files to the output branch
       - name: Push Snake Animation to Repository
         uses: peaceiris/actions-gh-pages@v4
         with:
