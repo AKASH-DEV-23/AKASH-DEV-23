@@ -1,2 +1,5 @@
-[![Portfolio](https://img.shields.io/badge/Visit%20Portfolio-%23FF0080%20to%20%237928CA?style=for-the-badge&logo=vercel&logoColor=white)](https://akash-devx.vercel.app/)
-![GitHub Snake Animation](https://raw.githubusercontent.com/AKASH-DEV-23/AKASH-DEV-23/output/github-contribution-snake-dark.svg)
+<picture>
+  <source media="(prefers-color-scheme: dark)" srcset="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO_NAME/output/github-snake-dark.svg">
+  <source media="(prefers-color-scheme: light)" srcset="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO_NAME/output/github-snake.svg">
+  <img alt="GitHub Contribution Snake Animation" src="https://raw.githubusercontent.com/YOUR_USERNAME/YOUR_REPO_NAME/output/github-snake.svg">
+</picture>
