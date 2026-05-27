@@ -1,4 +1,5 @@
 name: Generate Snake
+
 on:
   schedule:
     - cron: "0 0 * * *" # Runs daily at midnight
@@ -10,26 +11,26 @@ permissions:
 jobs:
   generate:
     runs-on: ubuntu-latest
+    timeout-minutes: 5
+    
     steps:
+      # Check out the repository so it can commit assets if needed
       - name: Checkout Repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
 
+      # Generates a snake game from a github user contributions graph, output a svg animation
       - name: Generate GitHub Contribution Snake
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-contribution-snake-dark.svg?palette=github-dark
-          # Bright green snake
-          color_snake: "#00FF00"
-          # Dark theme colors for dots
-          color_dots: |
-            #161B22,#00FF00,#00FF00,#00FF00,#FF00FF
-          # Using transparent background
-          background: "transparent"
+            dist/github-snake.svg
+            dist/github-snake-dark.svg?palette=github-dark
+            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#4a90e2,#165fbe,#0b3774
           
+      # Push the total of 3 files to the 'output' branch
       - name: Push Snake Animation to Repository
-        uses: peaceiris/actions-gh-pages@v3
+        uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
           publish_branch: output
