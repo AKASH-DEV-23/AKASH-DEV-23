@@ -6,7 +6,7 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write  # Crucial for allowing the bot to create the output branch
+  contents: write
 
 jobs:
   generate:
@@ -17,21 +17,13 @@ jobs:
       - name: Checkout Repository
         uses: actions/checkout@v4
 
-      # Generates the snake files
       - name: Generate GitHub Contribution Snake
         uses: Platane/snk@v3
         with:
           github_user_name: ${{ github.repository_owner }}
           outputs: |
-            dist/github-snake.svg
-            dist/github-snake-dark.svg?palette=github-dark
-            dist/ocean.gif?color_snake=orange&color_dots=#bfd6f6,#8dbdff,#4a90e2,#165fbe,#0b3774
-          
-      # Pushes the generated files to the output branch
-      - name: Push Snake Animation to Repository
-        uses: peaceiris/actions-gh-pages@v4
-        with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_branch: output
-          publish_dir: dist
-          force_orphan: true
+            # Light Mode SVG: Soft cool slate grid with a deep purple snake
+            dist/github-snake.svg?color_snake=#7928ca&color_dots=#ebedf0,#d1d5db,#9ca3af,#6b7280,#374151
+            
+            # Dark Mode SVG: Cyberpunk Neon Cyan Snake on a deep space purple grid
+            dist/github-snake-dark.svg?color_snake=#00f5ff&color_dots=#161b22,#39235a,#5a2e91,#813bc9,#b159ff
